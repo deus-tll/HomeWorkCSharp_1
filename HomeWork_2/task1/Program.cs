@@ -4,7 +4,7 @@
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello, World!");
+			//якщо ви вже перевіряєте, то я завнтажив посилання аби не було просрочки, але звісно я зроблю все
 		}
 	}
 }
