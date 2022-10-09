@@ -101,11 +101,12 @@
 			text = Console.ReadLine();
 
 
-			Console.Write($"Введіть ключ: ");
-			keyStr = Console.ReadLine();
-
 			while (true)
 			{
+				Console.Write($"Введіть ключ: ");
+				keyStr = Console.ReadLine();
+
+
 				if (!Int32.TryParse(keyStr, out key))
 				{
 					Console.WriteLine($"Ключ має містити тільки цифри!");
