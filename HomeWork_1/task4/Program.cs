@@ -90,7 +90,7 @@
 				else
 					break;
 			}
-
+			
 
 			char c = numberStr[digit1 - 1];
 
