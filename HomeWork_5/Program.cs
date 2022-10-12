@@ -41,12 +41,10 @@
 			{
 				if (amount >= (decimal)0.0)
 				{
-					Card _card = (Card)card.Clone();
-
-					_card.Balance += amount;
+					card.Balance += amount;
 
 					Console.WriteLine("Succes!");
-					return _card;
+					return card;
 				}
 				else
 				{
@@ -57,17 +55,16 @@
 
 			public static Card operator -(Card card, decimal amount)
 			{
+				if (card.Balance - amount < (decimal)0.0)
+				{
+					Console.WriteLine("There is not enough money on the card to complete the operation.");
+					return card;
+				}
 				if (amount >= (decimal)0.0)
 				{
-					Card _card = (Card)card.Clone();
-					if (_card.Balance - amount < (decimal)0.0)
-					{
-						Console.WriteLine("There is not enough money on the card to complete the operation.");
-						return _card;
-					}
-					_card.Balance -= amount;
+					card.Balance -= amount;
 
-					return _card;
+					return card;
 				}
 				else
 				{
