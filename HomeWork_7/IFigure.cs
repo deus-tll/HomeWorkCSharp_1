@@ -51,7 +51,9 @@ namespace HomeWork_7
 		{
 			Console.ForegroundColor = Color;
 
-			Console.SetCursorPosition(X, Y++);
+			int tmp = Y;
+
+			Console.SetCursorPosition(X, tmp++);
 
 			for (int i = 0; i < LengthOfSecondSide; ++i)
 			{
@@ -59,8 +61,9 @@ namespace HomeWork_7
 				{
 					Console.Write("*");
 				}
-				Console.SetCursorPosition(X, Y++);
+				Console.SetCursorPosition(X, tmp++);
 			}
+			Console.SetCursorPosition(0, 0);
 			Console.ResetColor();
 		}
 	}
@@ -78,7 +81,9 @@ namespace HomeWork_7
 		{
 			Console.ForegroundColor = Color;
 
-			Console.SetCursorPosition(X, Y++);
+			int tmp = Y;
+
+			Console.SetCursorPosition(X, tmp++);
 
 			int i, j, N = LengthOfFirstSide * 2;
 			int center = N / 2;
@@ -102,8 +107,9 @@ namespace HomeWork_7
 							Console.Write(" ");
 					}
 				}
-				Console.SetCursorPosition(X, Y++);
+				Console.SetCursorPosition(X, tmp++);
 			}
+			Console.SetCursorPosition(0, 0);
 			Console.ResetColor();
 		}
 	}
@@ -121,7 +127,9 @@ namespace HomeWork_7
 		{
 			Console.ForegroundColor = Color;
 
-			Console.SetCursorPosition(X, Y++);
+			int tmp = Y;
+
+			Console.SetCursorPosition(X, tmp++);
 
 			int i, j, N = LengthOfFirstSide * 2;
 			int center = N / 2;
@@ -138,8 +146,9 @@ namespace HomeWork_7
 							Console.Write(" ");
 					}
 				}
-				Console.SetCursorPosition(X, Y++);
+				Console.SetCursorPosition(X, tmp++);
 			}
+			Console.SetCursorPosition(0, 0);
 			Console.ResetColor();
 		}
 	}
@@ -157,7 +166,9 @@ namespace HomeWork_7
 		{
 			Console.ForegroundColor = Color;
 
-			Console.SetCursorPosition(X, Y++);
+			int tmp = Y;
+
+			Console.SetCursorPosition(X, tmp++);
 
 			int l = 2 * LengthOfFirstSide - 1;
 
@@ -174,7 +185,7 @@ namespace HomeWork_7
 					else
 						Console.Write(" ");
 				}
-				Console.SetCursorPosition(X, Y++);
+				Console.SetCursorPosition(X, tmp++);
 			}
 
 
@@ -187,7 +198,7 @@ namespace HomeWork_7
 					else
 						Console.Write(" ");
 				}
-				Console.SetCursorPosition(X, Y++);
+				Console.SetCursorPosition(X, tmp++);
 			}
 
 
@@ -203,10 +214,11 @@ namespace HomeWork_7
 					else
 						Console.Write(" ");
 				}
-				Console.SetCursorPosition(X, Y++);
+				Console.SetCursorPosition(X, tmp++);
 			}
 
 			Console.ResetColor();
+			Console.SetCursorPosition(0, 0);
 		}
 	}
 }
