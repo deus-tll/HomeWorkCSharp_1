@@ -39,7 +39,7 @@
 			pq.Push(12, 1);
 			pq.Push(20, 5);
 
-
+			
 			pq.Show();
 			Console.WriteLine();
 
