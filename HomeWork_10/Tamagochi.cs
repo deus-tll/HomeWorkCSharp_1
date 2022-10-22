@@ -8,31 +8,83 @@ using System.Timers;
 
 namespace HomeWork_10
 {
-	internal sealed partial class Tamagochi
+	internal sealed class Tamagochi
 	{
 		Tamagochi()
 		{
-			actions = new List<Action>();
+			this.TransitionTo(new CoolState());
 
-			actions.Add(Feed);
-			actions.Add(TakeAWalk);
-			actions.Add(PutToSleep);
-			actions.Add(Play);
+			action += Action;
+
+			listOfActions = new List<string>();
+			listOfActions.Add("Нагодуй мене");
+			listOfActions.Add("Погуляй зі мною");
+			listOfActions.Add("Вклади мене спати");
+			listOfActions.Add("Пограй зі мною");
 		}
 
-		private List<Action> actions;
+
+		private State state;
+		private readonly Action<string> action;
+		private readonly System.Timers.Timer timer;
+		private readonly List<string> listOfActions;
+		private readonly string treat = "Полікуй мене";
+		private string duplication;
+		private int rejection;
+		private bool isDead = false;
 
 
-		private DialogResult InvokeMessageBox(string action, MessageBoxButtons messageBoxButtons, MessageBoxIcon messageBoxIcon)
+		private void TransitionTo(State state)
 		{
-			return MessageBox.Show(action, "Tamagochi", messageBoxButtons, messageBoxIcon);
+			this.state = state;
+			this.state.SetTamagochi(this);
 		}
 
 
-		
+		private void CheckState()
+		{
+			switch (rejection)
+			{
+				case 0:
+					this.TransitionTo(new CoolState());
+					break;
+				case 1:
+					this.TransitionTo(new OKState());
+					break;
+				case 2:
+					this.TransitionTo(new BadState());
+					break;
+				default:
+					break;
+			}
+
+			if (isDead)
+			{
+				this.TransitionTo(new DeathState());
+			}
+		}
 
 
-		public void StartPlay()
+		private void Action(string action)
+		{
+			DialogResult dialogResult = MessageBox.Show(action, "Tamagochi", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+			if (dialogResult == DialogResult.Yes)
+			{
+				rejection = 0;
+			}
+			else
+			{
+				if (action == treat)
+				{
+					isDead = true;
+					return;
+				}
+				++rejection;
+			}
+		}
+
+
+		public void Play()
 		{
 			
 		}

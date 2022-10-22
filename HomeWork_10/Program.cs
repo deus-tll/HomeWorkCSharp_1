@@ -12,11 +12,11 @@ namespace HomeWork_10
 	{
 		static void Main(string[] args)
 		{
-			DialogResult dialogResult = MessageBox.Show("Hello", "Tamagochi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-			if (dialogResult == DialogResult.Yes)
-			{
-				Console.WriteLine("Hello");
-			}
+			//DialogResult dialogResult = MessageBox.Show("Hello", "Tamagochi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+			//if (dialogResult == DialogResult.Yes)
+			//{
+			//	Console.WriteLine("Hello");
+			//}
 
 			
 
