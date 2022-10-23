@@ -12,21 +12,8 @@ namespace HomeWork_10
 	{
 		static void Main(string[] args)
 		{
-			//DialogResult dialogResult = MessageBox.Show("Hello", "Tamagochi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-			//if (dialogResult == DialogResult.Yes)
-			//{
-			//	Console.WriteLine("Hello");
-			//}
-
-			
-
-			System.Timers.Timer t = new System.Timers.Timer();
-
-			
-			
-
-
-			Console.ReadKey();
+			Tamagochi tamagochi = new Tamagochi();
+			tamagochi.Play();
 		}
 	}
 }
