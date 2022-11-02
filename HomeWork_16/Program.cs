@@ -21,7 +21,6 @@ namespace HomeWork_16
 
 						ParsingCurrency(cur, rNode);
 
-
 						list.Add(cur);
 					}
 				}
