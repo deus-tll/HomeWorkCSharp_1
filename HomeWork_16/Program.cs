@@ -19,43 +19,43 @@ namespace HomeWork_16
 					{
 						Currency cur = new Currency();
 
-						foreach (XmlNode childNode in rNode)
-						{
-							if (childNode.Name == "r030")
-							{
-								cur.r030 = Convert.ToInt32(childNode.InnerText);
-							}
-							else if (childNode.Name == "txt")
-							{
-								cur.txt = childNode.InnerText;
-							}
-							else if (childNode.Name == "rate")
-							{
-								NumberFormatInfo numberFormatInfo = new NumberFormatInfo()
-								{
-									NumberDecimalSeparator = ".",
-								};
+						ParsingCurrency(cur, rNode);
 
-								cur.rate = Decimal.Parse(childNode.InnerText, numberFormatInfo);
-							}
-							else if (childNode.Name == "cc")
-							{
-								cur.cc = childNode.InnerText;
-							}
-							else if (childNode.Name == "exchangedate")
-							{
-								DateTimeFormatInfo dateTimeFormatInfo = new DateTimeFormatInfo()
-								{
-									ShortDatePattern = "d.M.yyyy",
-									DateSeparator = "."
-								};
-
-								cur.exchangedate = DateTime.Parse(childNode.InnerText);
-							}
-						}
 
 						list.Add(cur);
 					}
+				}
+			}
+		}
+
+		static void ParsingCurrency(Currency cur, XmlNode node)
+		{
+			switch (node.Name)
+			{
+				case "r030": cur.r030 = Convert.ToInt32(node.InnerText); break;
+
+				case "txt": cur.txt = node.InnerText; break;
+
+				case "rate": NumberFormatInfo numberFormatInfo = new NumberFormatInfo() { NumberDecimalSeparator = ".",};
+					cur.rate = Decimal.Parse(node.InnerText, numberFormatInfo);
+					break;
+
+				case "cc": cur.cc = node.InnerText; break;
+
+				case "exchangedate": DateTimeFormatInfo dateTimeFormatInfo = new DateTimeFormatInfo() {	ShortDatePattern = "d.M.yyyy", DateSeparator = "."};
+					cur.exchangedate = DateTime.Parse(node.InnerText);
+					break;
+
+				default:
+					break;
+			}
+
+
+			if (node.HasChildNodes)
+			{
+				foreach (XmlNode item in node)
+				{
+					ParsingCurrency(cur, item);
 				}
 			}
 		}
